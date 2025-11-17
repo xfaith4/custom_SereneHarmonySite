@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#FDF9F3" />
+  <title>Privacy Policy — Serene Harmony</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --base:#FDF9F3; --blush:#F2D2D7; --lavender:#DDCDE9; --teal:#BFE0D7; --ink:#5E6A7A;
+      --font-heading:'Playfair Display',serif; --font-body:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --maxw:72rem; --section-pad:clamp(3rem,5vw + 1rem,6.5rem); --radius:16px; --shadow:0 10px 30px rgba(94,106,122,.12);
+      --card-bg:rgba(255,255,255,.75);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;color:var(--ink);background:var(--base);font-family:var(--font-body);line-height:1.7;font-weight:400;letter-spacing:.01em}
+    body::before{
+      content:"";position:fixed;inset:0;z-index:-1;
+      background-image:url('assets/paisley.svg');background-size:600px auto;background-repeat:repeat;background-position:center;
+      opacity:.22;pointer-events:none;filter:contrast(95%) saturate(90%)
+    }
+    a{color:var(--teal);text-decoration:underline}
+    a:hover{color:var(--ink)}
+    .container{width:min(100%,var(--maxw));margin-inline:auto;padding-inline:clamp(1rem,3vw,2rem)}
+    .section{padding-block:var(--section-pad)}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
+      background:color-mix(in oklab,var(--base) 80%, white 20%);
+      border-bottom:1px solid color-mix(in oklab,var(--ink) 12%, transparent 88%)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding-block:.9rem}
+    .brand{font-family:var(--font-heading);font-weight:600;letter-spacing:.02em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+    .card{background:var(--card-bg);border:1px solid color-mix(in oklab,var(--ink) 10%, transparent 90%);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.5rem,2vw + 1rem,2.5rem)}
+    h1,h2,h3{font-family:var(--font-heading);line-height:1.25;margin:1.5em 0 .5em 0}
+    h1{font-size:clamp(2rem,2.5vw + 1rem,2.5rem);margin-top:0}
+    h2{font-size:clamp(1.5rem,2vw + .8rem,1.8rem)}
+    h3{font-size:clamp(1.2rem,1.5vw + .7rem,1.4rem)}
+    p{margin:0 0 1em 0}
+    .back-link{display:inline-block;padding:.5rem 1rem;margin-bottom:1rem;border-radius:999px;background:var(--lavender);color:var(--ink);text-decoration:none;transition:background .2s}
+    .back-link:hover{background:var(--blush)}
+    :focus-visible{outline:3px solid color-mix(in oklab,var(--teal) 50%, white 50%);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">Serene Harmony</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="card">
+          <a href="index.html" class="back-link">← Back to Home</a>
+          
+          <h1>Privacy Policy</h1>
+          <p><em>Last Updated: November 17, 2025</em></p>
+
+          <h2>Overview</h2>
+          <p>At Serene Harmony, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our contact form.</p>
+
+          <h2>Information We Collect</h2>
+          <p>When you submit our contact form, we collect:</p>
+          <ul>
+            <li><strong>Name:</strong> To address you personally in our communications</li>
+            <li><strong>Email Address:</strong> To respond to your inquiry and schedule appointments</li>
+            <li><strong>Message/Request:</strong> To understand your needs and provide appropriate services</li>
+          </ul>
+          <p>We do <strong>not</strong> collect:</p>
+          <ul>
+            <li>Payment information</li>
+            <li>Social Security numbers</li>
+            <li>Health records or sensitive medical information (until you become a client)</li>
+            <li>Location tracking or cookies for advertising</li>
+          </ul>
+
+          <h2>How We Use Your Information</h2>
+          <p>Your information is used solely for:</p>
+          <ul>
+            <li>Responding to your contact form inquiry</li>
+            <li>Scheduling appointments and service coordination</li>
+            <li>Providing information about our stretching and mobility services</li>
+            <li>Sending occasional service updates (only if you opt-in)</li>
+          </ul>
+
+          <h2>Data Processing & Storage</h2>
+          <p>Contact form submissions are processed by <strong>Netlify Forms</strong>, a secure third-party service. Netlify is compliant with industry-standard security practices and GDPR regulations.</p>
+          <ul>
+            <li><strong>Secure transmission:</strong> All data is transmitted over HTTPS encryption</li>
+            <li><strong>Spam protection:</strong> We use honeypot fields to prevent bot submissions</li>
+            <li><strong>Storage:</strong> Form data is stored securely in Netlify's infrastructure</li>
+          </ul>
+          <p>For Netlify's privacy practices, see: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify Privacy Policy</a></p>
+
+          <h2>Data Retention</h2>
+          <p>We retain your contact information for:</p>
+          <ul>
+            <li><strong>Active inquiries:</strong> Until you schedule an appointment or indicate you're no longer interested</li>
+            <li><strong>Client records:</strong> As required by professional standards and applicable laws</li>
+            <li><strong>Maximum retention:</strong> We review and purge old contact form data periodically (typically within 12 months for inactive inquiries)</li>
+          </ul>
+
+          <h2>Your Rights</h2>
+          <p>You have the right to:</p>
+          <ul>
+            <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+            <li><strong>Correction:</strong> Request corrections to any inaccurate information</li>
+            <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal obligations)</li>
+            <li><strong>Opt-out:</strong> Unsubscribe from any future communications</li>
+          </ul>
+          <p>To exercise these rights, please contact us through the website contact form or email.</p>
+
+          <h2>Data Sharing</h2>
+          <p>We do <strong>not</strong> sell, rent, or share your personal information with third parties for marketing purposes. Your data is shared only with:</p>
+          <ul>
+            <li><strong>Netlify Forms:</strong> For form processing (as described above)</li>
+            <li><strong>Legal requirements:</strong> If required by law or legal process</li>
+          </ul>
+
+          <h2>Security Measures</h2>
+          <p>We implement industry-standard security practices:</p>
+          <ul>
+            <li>HTTPS encryption for all data transmission</li>
+            <li>Secure form processing with spam protection</li>
+            <li>No storage of sensitive personal information on public servers</li>
+            <li>Regular review of security practices</li>
+          </ul>
+
+          <h2>Consent</h2>
+          <p>By submitting the contact form, you explicitly consent to:</p>
+          <ul>
+            <li>The collection and processing of your information as described in this policy</li>
+            <li>Being contacted regarding your inquiry and services</li>
+          </ul>
+          <p>This consent is indicated by the required checkbox on the contact form.</p>
+
+          <h2>Children's Privacy</h2>
+          <p>Our services and website are not directed to individuals under 18 years of age. We do not knowingly collect personal information from minors. If you are a parent or guardian and believe your child has provided us with information, please contact us immediately.</p>
+
+          <h2>Changes to This Policy</h2>
+          <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. The "Last Updated" date at the top indicates when changes were last made. Continued use of our contact form after updates constitutes acceptance of the revised policy.</p>
+
+          <h2>California Privacy Rights (CCPA)</h2>
+          <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA):</p>
+          <ul>
+            <li>Right to know what personal information is collected</li>
+            <li>Right to delete personal information</li>
+            <li>Right to opt-out of sale (Note: We do not sell personal information)</li>
+            <li>Right to non-discrimination for exercising your rights</li>
+          </ul>
+
+          <h2>European Privacy Rights (GDPR)</h2>
+          <p>If you are in the European Economic Area (EEA), you have rights under the General Data Protection Regulation (GDPR):</p>
+          <ul>
+            <li>Right to access your personal data</li>
+            <li>Right to rectification of inaccurate data</li>
+            <li>Right to erasure ("right to be forgotten")</li>
+            <li>Right to data portability</li>
+            <li>Right to object to processing</li>
+          </ul>
+          <p><strong>Legal basis for processing:</strong> Your explicit consent via the contact form checkbox.</p>
+
+          <h2>Contact Us</h2>
+          <p>If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us through:</p>
+          <ul>
+            <li>The contact form on our <a href="index.html#contact">website</a></li>
+            <li>Email: [Add your contact email here]</li>
+          </ul>
+
+          <h2>Third-Party Links</h2>
+          <p>Our website may contain links to external sites (such as Google Fonts). We are not responsible for the privacy practices of these sites. Please review their privacy policies separately.</p>
+
+          <a href="index.html" class="back-link" style="margin-top:2rem">← Back to Home</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding-block:2rem;margin-top:2rem;border-top:1px solid color-mix(in oklab,var(--ink) 12%, transparent 88%)">
+    <div class="container" style="text-align:center;font-size:.9rem;opacity:.9">
+      © <span id="year"></span> Serene Harmony • <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
