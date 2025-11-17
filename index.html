@@ -25,26 +25,42 @@
     }
     *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;color:var(--ink);background:var(--base);font-family:var(--font-body);line-height:1.7;font-weight:400;letter-spacing:.01em}
-    body::before{
-      content:"";position:fixed;inset:0;z-index:-1;
-      background-image:url('assets/paisley.svg');background-size:600px auto;background-repeat:repeat;background-position:center;
-      opacity:.22;pointer-events:none;filter:contrast(95%) saturate(90%)
+    body{
+      margin:0;color:var(--ink);background:var(--base);font-family:var(--font-body);
+      line-height:1.7;font-weight:400;letter-spacing:.01em;
+      background-image:url('assets/paisley.svg');
+      background-size:600px auto;background-repeat:repeat;background-position:center;
+      background-attachment:scroll
     }
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto;border-radius:calc(var(--radius) - 4px);display:block}
     .container{width:min(100%,var(--maxw));margin-inline:auto;padding-inline:clamp(1rem,3vw,2rem)}
     .stack{display:grid;gap:clamp(1rem,1.75vw,1.5rem)}
     .section{padding-block:var(--section-pad)}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);
+    header{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+      background:#f7f2fa;
       background:color-mix(in oklab,var(--base) 80%, white 20%);
-      border-bottom:1px solid color-mix(in oklab,var(--ink) 12%, transparent 88%)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding-block:.9rem}
+      border-bottom:1px solid rgba(94,106,122,.12)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding-block:.9rem;position:relative}
     .brand{font-family:var(--font-heading);font-weight:600;letter-spacing:.02em;font-size:1.15rem}
     .menu{display:flex;gap:1rem}
     .menu a{padding:.5rem .75rem;border-radius:999px;transition:background .2s ease}
-    .menu a:hover{background:color-mix(in oklab,var(--lavender) 35%, white 65%)}
-    .hero{position:relative;isolation:isolate;min-height:68vh;display:grid;place-items:center;
+    .menu a:hover{background:#f1e8f5;background:color-mix(in oklab,var(--lavender) 35%, white 65%)}
+    .menu-toggle{
+      display:none;align-items:center;justify-content:center;width:44px;height:44px;
+      border-radius:999px;border:1px solid rgba(94,106,122,.35);background:var(--base);
+      color:var(--ink);cursor:pointer;transition:background .2s ease,border-color .2s ease
+    }
+    .menu-toggle:hover{background:#f4e8ed}
+    .menu-toggle:focus-visible{outline:3px solid rgba(191,224,215,0.7);outline-offset:3px}
+    .menu-toggle-bar{width:18px;height:2px;background:currentColor;position:relative}
+    .menu-toggle-bar::before,.menu-toggle-bar::after{
+      content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor
+    }
+    .menu-toggle-bar::before{top:-6px}.menu-toggle-bar::after{top:6px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .hero{position:relative;isolation:isolate;min-height:min(68vh,720px);display:grid;place-items:center;
+      background:linear-gradient(135deg,#ede3f6,#f5dbe0);
       background:linear-gradient(to bottom right,color-mix(in oklab,var(--lavender) 22%,transparent 78%),color-mix(in oklab,var(--blush) 18%,transparent 82%));
       border-bottom-left-radius:36px;border-bottom-right-radius:36px;box-shadow:var(--shadow);overflow:hidden}
     .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--hero-overlay);mix-blend-mode:multiply}
@@ -54,7 +70,7 @@
     .cta{margin-top:1.75rem;display:inline-block;padding:.85rem 1.15rem;border-radius:999px;background:var(--blush);color:var(--ink);font-weight:600;box-shadow:var(--shadow);
       transition:transform .15s ease, box-shadow .2s ease, background .2s ease}
     .cta:hover{transform:translateY(-1px);box-shadow:0 12px 34px rgba(94,106,122,.16)}
-    .card{background:var(--card-bg);border:1px solid color-mix(in oklab,var(--ink) 10%, transparent 90%);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.25rem,1.5vw + 1rem,2rem)}
+    .card{background:var(--card-bg);border:1px solid rgba(94,106,122,.1);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.25rem,1.5vw + 1rem,2rem)}
     h2,h3{font-family:var(--font-heading);line-height:1.25;margin:0 0 .5rem 0}
     h2{font-size:clamp(1.6rem,2.2vw + 1rem,2.2rem)}
     h3{font-size:clamp(1.2rem,1.4vw + .8rem,1.4rem);opacity:.9}
@@ -62,30 +78,59 @@
     .col-7{grid-column:span 7}.col-5{grid-column:span 5}
     @media (max-width:960px){.col-7,.col-5{grid-column:1 / -1}}
     .muted{opacity:.9}
-    .accent-bg-lav{background:color-mix(in oklab,var(--lavender) 22%, white 78%)}
-    .accent-bg-teal{background:color-mix(in oklab,var(--teal) 22%, white 78%)}
+    .accent-bg-lav{background:#ede3f6;background:color-mix(in oklab,var(--lavender) 22%, white 78%)}
+    .accent-bg-teal{background:#d9f0ea;background:color-mix(in oklab,var(--teal) 22%, white 78%)}
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
     .reveal.is-visible{opacity:1;transform:none}
-    footer{padding-block:3rem;margin-top:2rem;border-top:1px solid color-mix(in oklab,var(--ink) 12%, transparent 88%);
+    footer{padding-block:3rem;margin-top:2rem;border-top:1px solid rgba(94,106,122,.12);
+      background:#eef7f4;
       background:color-mix(in oklab,var(--teal) 12%, var(--base) 88%)}
     .tiny{font-size:.9rem;opacity:.9}
     /* Mobile polish */
     @media (max-width:600px){
-      :root{--section-pad:2.25rem;--radius:14px}
+      :root{--section-pad:1.75rem;--radius:14px}
       .hero h1{font-size:clamp(1.9rem,6vw,2.4rem)}
       .lead{font-size:1.05rem}
       .menu a{padding:.4rem .6rem}
     }
     button.cta,input[type="submit"],input,textarea{min-height:48px}
-    :focus-visible{outline:3px solid color-mix(in oklab,var(--teal) 50%, white 50%);outline-offset:2px}
+    :focus-visible{outline:3px solid rgba(191,224,215,0.5);outline-offset:2px}
     @media (prefers-reduced-motion:reduce){.reveal{transition:none !important;transform:none !important;opacity:1 !important}}
+    .benefits-grid{margin-top:1rem}
+    .benefits-physical{background:#e5f5f0;background:color-mix(in oklab, var(--teal) 15%, white 85%)}
+    .benefits-quality{background:#f1e6f8;background:color-mix(in oklab, var(--lavender) 15%, white 85%)}
+    .benefits-disclaimer{margin-top:1rem}
+    .methodology-section h3{margin-top:1.5rem}
+    .methodology-result{margin-top:1.5rem}
+    .services-disclaimer{margin-top:1rem;display:inline-block}
+    .contact-form{margin-top:1rem}
+    .form-input,.form-textarea{width:100%;padding:.8rem 1rem;border-radius:12px;border:1px solid rgba(94,106,122,.15);border:1px solid color-mix(in oklab, var(--ink) 15%, transparent 85%)}
+    .form-textarea{padding:.9rem 1rem}
+    .form-checkbox-wrapper{display:flex;gap:.6rem;align-items:flex-start}
+    .testimonials-disclaimer{font-size:.85rem}
+    @media (max-width:720px){
+      .nav{gap:.75rem}
+      .menu{position:absolute;top:calc(100% + .5rem);right:clamp(1rem,3vw,2rem);left:clamp(1rem,3vw,2rem);
+        flex-direction:column;background:#fff;background:color-mix(in oklab,var(--base) 92%, white 8%);
+        border:1px solid rgba(94,106,122,.12);border-radius:var(--radius);
+        padding:1rem;box-shadow:var(--shadow);opacity:0;transform:scale(.97);
+        transform-origin:top right;pointer-events:none;transition:opacity .2s ease, transform .2s ease}
+      .menu.is-open{opacity:1;transform:scale(1);pointer-events:auto}
+      .menu a{width:100%;padding:.75rem;border-radius:8px}
+      .menu-toggle{display:inline-flex}
+      .hero{min-height:auto;padding-block:calc(var(--section-pad) + 1rem)}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
       <div class="brand">Peace Love and Body Work</div>
-      <nav class="menu" aria-label="Primary">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true" class="menu-toggle-bar"></span>
+      </button>
+      <nav class="menu" id="primary-menu" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#benefits">Benefits</a>
         <a href="#services">Services</a>
@@ -110,8 +155,8 @@
         <article class="card reveal">
           <h2>The Stretchology Difference — Professional Results</h2>
           <p>Professional assisted stretching delivers measurably better outcomes than self-stretching alone. Working one-on-one with a certified stretch therapist allows us to target your fascial system, increase range of motion safely, and address compensation patterns that cause chronic pain and limited mobility.</p>
-          <div class="grid" style="margin-top:1rem;">
-            <div class="card col-5" style="background:color-mix(in oklab, var(--teal) 15%, white 85%);">
+          <div class="grid benefits-grid">
+            <div class="card col-5 benefits-physical">
               <h3>Physical Improvements</h3>
               <ul>
                 <li>Increased range of motion (ROM)</li>
@@ -122,7 +167,7 @@
                 <li>Injury prevention & rehabilitation support</li>
               </ul>
             </div>
-            <div class="card col-7" style="background:color-mix(in oklab, var(--lavender) 15%, white 85%);">
+            <div class="card col-7 benefits-quality">
               <h3>Quality of Life Benefits</h3>
               <ul>
                 <li>Relief from desk-work related tension</li>
@@ -134,7 +179,7 @@
               </ul>
             </div>
           </div>
-          <p class="muted" style="margin-top:1rem;">*Results vary by individual. Regular sessions with a professional stretch therapist yield the most significant improvements.</p>
+          <p class="muted benefits-disclaimer">*Results vary by individual. Regular sessions with a professional stretch therapist yield the most significant improvements.</p>
         </article>
       </div>
     </section>
@@ -156,7 +201,7 @@
             <li>Expertise in postural assessment & movement analysis</li>
             <li>Continuing education in sports medicine & rehabilitation</li>
           </ul>
-          <p class="muted" style="margin-top:1rem;">Working 1-on-1 with a professional ensures safe, effective progression and optimal results.</p>
+          <p class="muted benefits-disclaimer">Working 1-on-1 with a professional ensures safe, effective progression and optimal results.</p>
         </aside>
       </div>
     </section>
@@ -168,16 +213,16 @@
           <h2>Our Methodology — The Kinetic Chain Approach</h2>
           <p>Your body functions as an integrated <strong>kinetic chain</strong>—a connected system where tension or restriction in one area affects the entire body. Our professional approach addresses this interconnectedness through evidence-based techniques that restore balance and optimal function.</p>
           
-          <h3 style="margin-top:1.5rem;">Fascial Stretch Therapy (FST)</h3>
+          <h3 class="methodology-section">Fascial Stretch Therapy (FST)</h3>
           <p>FST targets the fascial system, the web of connective tissue that holds everything together. By using gentle traction and specific joint capsule work, we can dramatically increase range of motion while reducing pain and improving circulation. This table-based technique allows for deeper, more effective stretching than floor work alone.</p>
           
-          <h3 style="margin-top:1.5rem;">Active Isolated Stretching (AIS)</h3>
+          <h3 class="methodology-section">Active Isolated Stretching (AIS)</h3>
           <p>AIS involves holding stretches for only 2 seconds at a time, allowing muscles to relax and lengthen without triggering protective reflexes. This precise, targeted approach is particularly effective for athletes and anyone seeking functional flexibility improvements.</p>
           
-          <h3 style="margin-top:1.5rem;">Myofascial Release & Neural Flossing</h3>
+          <h3 class="methodology-section">Myofascial Release & Neural Flossing</h3>
           <p>We incorporate hands-on myofascial release to address adhesions and trigger points, combined with neural flossing techniques that improve nerve mobility. This combination is especially beneficial for those experiencing radiating pain or nerve-related symptoms.</p>
           
-          <p style="margin-top:1.5rem;"><strong>The Result:</strong> A comprehensive, personalized approach that addresses your body's unique patterns, promotes lasting change, and empowers you to move better in all aspects of life.</p>
+          <p class="methodology-result"><strong>The Result:</strong> A comprehensive, personalized approach that addresses your body's unique patterns, promotes lasting change, and empowers you to move better in all aspects of life.</p>
         </article>
       </div>
     </section>
@@ -206,7 +251,7 @@
             <li><strong>Seniors</strong> — Maintaining independence and mobility</li>
             <li><strong>Stress Management</strong> — Nervous system regulation through bodywork</li>
           </ul>
-          <a class="cta" href="#contact" style="margin-top:1rem; display:inline-block;">Book Your Assessment</a>
+          <a class="cta services-disclaimer" href="#contact">Book Your Assessment</a>
         </aside>
       </div>
     </section>
@@ -216,25 +261,25 @@
       <div class="container grid">
         <article class="card col-7 reveal">
           <h2>Schedule Your Assessment</h2>
-          <p>Ready to feel lighter and move easier? Share a few details and we’ll reach out with available times and a suggested plan.</p>
-          <form name="stretch-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack" style="margin-top:1rem;">
+          <p>Ready to feel lighter and move easier? Share a few details and we'll reach out with available times and a suggested plan.</p>
+          <form name="stretch-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="stack contact-form">
             <input type="hidden" name="form-name" value="stretch-contact" />
             <p style="display:none;">
               <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
             </p>
             <label>
               <span>Name</span>
-              <input required name="name" type="text" autocomplete="name" placeholder="Your name" style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in oklab, var(--ink) 15%, transparent 85%);">
+              <input required name="name" type="text" autocomplete="name" placeholder="Your name" class="form-input">
             </label>
             <label>
               <span>Email</span>
-              <input required name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in oklab, var(--ink) 15%, transparent 85%);">
+              <input required name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" class="form-input">
             </label>
             <label>
               <span>What are your primary concerns?</span>
-              <textarea name="message" rows="5" autocomplete="on" placeholder="E.g., chronic neck pain, limited hip mobility, athletic performance, post-workout recovery, stress relief…" style="width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid color-mix(in oklab, var(--ink) 15%, transparent 85%);"></textarea>
+              <textarea name="message" rows="5" autocomplete="on" placeholder="E.g., chronic neck pain, limited hip mobility, athletic performance, post-workout recovery, stress relief…" class="form-textarea"></textarea>
             </label>
-            <label style="display:flex; gap:.6rem; align-items:flex-start;">
+            <label class="form-checkbox-wrapper">
               <input type="checkbox" name="consent" required>
               <span class="tiny">I agree to be contacted about scheduling and services. See our <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a>.</span>
             </label>
@@ -251,7 +296,7 @@
             <li>"After physical therapy, this was exactly what I needed to fully recover my shoulder mobility."</li>
           </ul>
           <!-- ⚠️ PLACEHOLDER: Replace these example quotes with actual client testimonials -->
-          <p class="muted" style="font-size:.85rem;">Testimonials represent individual experiences. Results vary based on consistency and individual factors.</p>
+          <p class="muted testimonials-disclaimer">Testimonials represent individual experiences. Results vary based on consistency and individual factors.</p>
         </aside>
       </div>
     </section>
@@ -259,7 +304,7 @@
 
   <footer>
     <div class="container stack">
-      <div class="tiny">© <span id="year"></span> Peace Love and Body Work • Professional Stretchology Services • <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a></div>
+      <div class="tiny">© <span id="year"></span> Peace Love and Body Work • Professional Stretchology Services • <a href="privacy.html" class="footer-link">Privacy Policy</a></div>
     </div>
   </footer>
 
@@ -270,6 +315,39 @@
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
     },{ threshold: 0.08 });
     revealEls.forEach(el => io.observe(el));
+
+    const navToggle = document.querySelector('.menu-toggle');
+    const primaryMenu = document.getElementById('primary-menu');
+    const closeMenu = ()=>{
+      if(!navToggle || !primaryMenu) return;
+      navToggle.setAttribute('aria-expanded','false');
+      primaryMenu.classList.remove('is-open');
+    };
+    if(navToggle && primaryMenu){
+      const mq = window.matchMedia('(max-width: 720px)');
+      navToggle.addEventListener('click', ()=>{
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', (!expanded).toString());
+        primaryMenu.classList.toggle('is-open', !expanded);
+      });
+      const handleChange = (evt)=>{
+        if(!evt.matches){
+          closeMenu();
+        }
+      };
+      if(mq.addEventListener){
+        mq.addEventListener('change', handleChange);
+      }else if(mq.addListener){
+        mq.addListener(handleChange);
+      }
+      primaryMenu.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', ()=>{
+          if(mq.matches){
+            closeMenu();
+          }
+        });
+      });
+    }
   </script>
 </body>
 </html>
