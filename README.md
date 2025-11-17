@@ -1,4 +1,4 @@
-# Serene Harmony — Professional Stretchology Site
+# Peace Love and Body Work — Professional Stretchology Site
 
 This package contains a mobile-friendly, single-file website for a professional Stretchology practice, featuring industry-specific terminology, evidence-based methodologies (FST, PNF, myofascial release), elegant typography, and a subtle paisley texture. The site emphasizes one-on-one certified professional services with customized treatment plans.
 

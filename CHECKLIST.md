@@ -53,7 +53,7 @@
   - **Option B:** Add sections to website (if you want to use them)
 
 ### Step 5: Customize Content
-- [ ] Update business name if different from "Serene Harmony"
+- [ ] Update business name if different from "Peace Love and Body Work"
 - [ ] Customize service offerings section
 - [ ] Update pricing information (if you want to include it)
 - [ ] Add your business address (if offering in-person services)
@@ -64,7 +64,7 @@
 ## 🎨 Optional Enhancements
 
 ### Step 6: Visual & Brand Improvements
-- [ ] Add your logo (replace "Serene Harmony" text with logo image)
+- [ ] Add your logo (replace "Peace Love and Body Work" text with logo image)
 - [ ] Customize color scheme (edit CSS variables in `index.html`)
 - [ ] Add more professional photos to other sections
 - [ ] Consider adding a headshot or about photo
