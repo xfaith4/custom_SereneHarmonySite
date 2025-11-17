@@ -1,6 +1,6 @@
-# Serene Harmony — Stretch Professional Site (Starter)
+# Serene Harmony — Professional Stretchology Site
 
-This package contains a mobile-friendly, single-file website tailored for a stretching professional, with on-brand colors, elegant typography, soft edges, and a subtle paisley texture.
+This package contains a mobile-friendly, single-file website for a professional Stretchology practice, featuring industry-specific terminology, evidence-based methodologies (FST, PNF, myofascial release), elegant typography, and a subtle paisley texture. The site emphasizes one-on-one certified professional services with customized treatment plans.
 
 ## Contents
 - `index.html` — the site
