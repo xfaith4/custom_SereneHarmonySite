@@ -15,20 +15,49 @@ This package contains a mobile-friendly, single-file website for a professional 
 - Replace the three section images in `/assets/` with your own photos (keep names or update the `src` paths in `index.html`).
 - To adjust the paisley texture strength, edit `opacity` in the `body::before` CSS (0.18–0.35 recommended).
 
-## Lead Capture (Two Options)
+## Lead Capture - Formspree Configuration
 
-### A) Netlify Forms (zero JS)
-1. Drag-drop this folder into Netlify (or connect a repo).
-2. Visit the deployed site once; Netlify will auto-detect the form named `stretch-contact`.
-3. In Netlify → Forms, enable notifications as desired.
+**Current Setup:** The contact form is configured to use Formspree and send submissions to **rleighc88b@gmail.com**.
 
-### B) Formspree (works anywhere)
-1. Create a Formspree form → get your endpoint ID.
-2. In `index.html`, change the `<form>` tag to:
-   ```html
-   <form action="https://formspree.io/f/YOUR_ID" method="POST" class="stack">
-   ```
-3. Remove `data-netlify` and the hidden `form-name` + honeypot if you like.
+### Setup Steps (Required)
+
+1. **Create a Formspree Account** (Free):
+   - Go to https://formspree.io/
+   - Sign up with the email address: **rleighc88b@gmail.com**
+   - Verify your email address
+
+2. **Create a New Form**:
+   - In your Formspree dashboard, click "New Form"
+   - Name it: "Peace Love and Body Work - Contact"
+   - Copy your form endpoint ID (looks like: `xanybjql`)
+
+3. **Update the Form Endpoint** (if needed):
+   - Open `index.html`
+   - Find line 265: `action="https://formspree.io/f/xanybjql"`
+   - Replace `xanybjql` with your actual Formspree form ID
+   - Save the file
+
+4. **Configure Email Settings** (in Formspree dashboard):
+   - Set notification email to: **rleighc88b@gmail.com**
+   - Enable email notifications for new submissions
+   - Optional: Customize the email template
+   - Optional: Set up auto-reply to submitters
+
+5. **Test the Form**:
+   - Visit your deployed website
+   - Fill out and submit the contact form
+   - Check **rleighc88b@gmail.com** for the email
+   - Users will see: "✓ Thank you! Your assessment request has been received. Someone will reach out to you soon with available times and a suggested plan."
+
+### Form Features
+
+- **JavaScript-enhanced submission**: Shows success/error messages without page reload
+- **Anti-spam protection**: Includes honeypot field to prevent bot submissions
+- **Form validation**: All required fields validated before submission
+- **User feedback**: Success/error messages displayed after submission
+- **Accessibility**: Form status updates are announced to screen readers
+
+See `FORM_SETUP.md` for detailed setup instructions and troubleshooting.
 
 ## Hosting
 
